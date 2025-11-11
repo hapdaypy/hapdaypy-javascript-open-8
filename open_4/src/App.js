@@ -1,8 +1,21 @@
-import { MissionUtils } from "@woowacourse/mission-utils";
+import { Console } from "@woowacourse/mission-utils";
+import PlayerAndHourseInput from "./view/PlayerAttendenceInput.js";
 
 class App {
   async run() {
-    MissionUtils.Console.print("안녕 테스트 시도 1");
+    const playerInput = new PlayerAndHourseInput();
+    await playerInput.collecPlayers();
+    await playerInput.AttendenceCheckPlayers();
+    playerInput.print();
+
+    const audience = new audienceInput(); // OMR작성, 승식별로 총 합 계산
+
+    const accidentVictim = accidentOccurred();
+    racingStart(accidentVictim);
+
+    adjustmentMoney(accidentVictim);
+
+    resultPublished();
   }
 }
 

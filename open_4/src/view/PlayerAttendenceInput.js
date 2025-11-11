@@ -5,6 +5,7 @@ class PlayerAndHourseInput {
   constructor() {
     this.playerAttendenceList = new PlayerManager();
   }
+
   async collecPlayers() {
     // 사용자 사전 입력
 
@@ -12,7 +13,6 @@ class PlayerAndHourseInput {
       const playerAndHorse = await Console.readLineAsync(
         "선수와 말을 입력해주세요.\n"
       );
-
       const [player, horse] = playerAndHorse
         .split(",")
         .map((item) => item.trim());

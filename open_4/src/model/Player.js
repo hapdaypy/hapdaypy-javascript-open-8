@@ -21,7 +21,6 @@ class player {
   get name() {
     return this.#name;
   }
-
   get horseName() {
     return this.#horseName;
   }

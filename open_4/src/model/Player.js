@@ -1,6 +1,7 @@
 import { MissionUtils } from "@woowacourse/mission-utils";
 
 class player {
+  // 플래이러 한 명을 관리하는 클래스
   #name;
   #horseName;
   #isPresent = false;
@@ -35,3 +36,13 @@ class player {
 }
 
 export default player;
+
+/*
+한 사람이 가져야할 정보
+
+이름
+말
+경기 결과
+출석 여부
+
+*/

@@ -1,21 +1,28 @@
 import { Console } from "@woowacourse/mission-utils";
-import PlayerAndHourseInput from "./view/PlayerAttendenceInput.js";
-
+import PlayerAttendenceInput from "./view/PlayerAttendenceInput.js";
+import AudienceInformationInput from "./view/AudienceInformationInput.js";
 class App {
   async run() {
-    const playerInput = new PlayerAndHourseInput();
+    // 선수들을 입장시키고 출석 결과 확인하기
+    const playerInput = new PlayerAttendenceInput(); // 새로운 배열을 만들겠다고 호출
     await playerInput.collecPlayers();
     await playerInput.AttendenceCheckPlayers();
     playerInput.print();
 
-    const audience = new audienceInput(); // OMR작성, 승식별로 총 합 계산
+    // 관 객 들 을 입 장 시 킴.
+    const audienceInput = new AudienceInformationInput(); // 사용 자들을 만들겠다고 호출
+    await audienceInput.collecAudience();
+    audienceInput.print();
 
-    const accidentVictim = accidentOccurred();
-    racingStart(accidentVictim);
+    // 경기를 진행 시킴
+    // const accidentVictim = accidentOccurred();
+    // racingStart(accidentVictim);
 
-    adjustmentMoney(accidentVictim);
+    // 경기 종료 후 정산
+    // adjustmentMoney(accidentVictim);
 
-    resultPublished();
+    // 최종 결과 진행
+    // resultPublished();
   }
 }
 

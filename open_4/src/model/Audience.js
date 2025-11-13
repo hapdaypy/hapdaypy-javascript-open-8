@@ -1,4 +1,4 @@
-class audience {
+class Audience {
   #name;
   #omr;
   #refundTarget; // 환불대상자
@@ -14,5 +14,13 @@ class audience {
       omr: this.#omr.getInfoOmr(),
     };
   }
+
+  getBettingType() {
+    return this.#omr.getMethodOfWinning();
+  }
+
+  getBettingMoney() {
+    return this.#omr.getBetAmount();
+  }
 }
-export default audience;
+export default Audience;

@@ -26,7 +26,7 @@ class Omr {
   }
 
   getBetAmount() {
-    return this.this.#betAmount;
+    return this.#betAmount;
   }
 
   getselectHourse() {

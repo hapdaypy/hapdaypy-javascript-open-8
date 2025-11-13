@@ -1,4 +1,4 @@
-import audience from "./Audience.js";
+import audience from './Audience.js';
 
 class AudienceManager {
   #audiences;

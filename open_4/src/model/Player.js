@@ -1,4 +1,4 @@
-import { MissionUtils } from "@woowacourse/mission-utils";
+import { MissionUtils } from '@woowacourse/mission-utils';
 
 class Player {
   // 플래이러 한 명을 관리하는 클래스
@@ -11,7 +11,7 @@ class Player {
     this.#name = name;
     this.#horseName = horseName;
     this.#isPresent = false;
-    this.#record = "";
+    this.#record = '';
   }
 
   checkIn() {
@@ -33,7 +33,7 @@ class Player {
   }
 
   addRecord() {
-    this.#record += "-";
+    this.#record += '-';
   }
 
   getRecord() {

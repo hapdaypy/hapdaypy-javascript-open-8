@@ -1,10 +1,10 @@
-import PlayerAttendenceInput from "./view/PlayerAttendenceInput.js";
-import AudienceInformationInput from "./view/AudienceInformationInput.js";
-import RacingStart from "./model/Racing.js";
-import BetTypeManager from "./model/BetTypeManager.js";
-import MoneyManager from "./model/MoneyManagement.js";
-import MoneyStatusView from "./view/MoneyStatusView.js";
-import RacingOutput from "./view/RacingOutput.js";
+import PlayerAttendenceInput from './view/PlayerAttendenceInput.js';
+import AudienceInformationInput from './view/AudienceInformationInput.js';
+import RacingStart from './model/Racing.js';
+import BetTypeManager from './model/BetTypeManager.js';
+import MoneyManager from './model/MoneyManagement.js';
+import MoneyStatusView from './view/MoneyStatusView.js';
+import RacingOutput from './view/RacingOutput.js';
 class App {
   async run() {
     // 선수들을 입장시키고 출석 결과 확인하기

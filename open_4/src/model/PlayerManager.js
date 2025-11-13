@@ -1,5 +1,5 @@
-import { Console } from "@woowacourse/mission-utils";
-import Player from "./Player.js";
+import { Console } from '@woowacourse/mission-utils';
+import Player from './Player.js';
 
 class PlayerManager {
   // 플레이서 리스트를 관리하는 클래스
@@ -16,7 +16,7 @@ class PlayerManager {
 
   makeAttendence(playerName, horseName) {
     let searchPlayer = this.#players.find(
-      (p) => p.getName() === playerName && p.getHorseName() === horseName
+      (p) => p.getName() === playerName && p.getHorseName() === horseName,
     );
     if (searchPlayer) searchPlayer.checkIn();
     else {

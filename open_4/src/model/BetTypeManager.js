@@ -19,10 +19,10 @@ class BetTypeManager {
 
   translateBetType(koreanType) {
     const typeMap = {
-      단승: "win",
-      연승: "place",
-      복승: "quinella",
-      쌍승: "exacta",
+      단승: 'win',
+      연승: 'place',
+      복승: 'quinella',
+      쌍승: 'exacta',
     };
     return typeMap[koreanType];
   }

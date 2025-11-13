@@ -23,7 +23,7 @@ class RacingStart {
       if (referenceValue >= RacingStart.TWENTY_FIVE) {
         // static 사용법
 
-        playerArray[index].addRecord(); //  배열에 접근하는 것아 아니라 사람이라는 클래스에 접근함
+        playerArray[index].addRecord(); // player라는 클래스에 접근함
       }
     }
   }

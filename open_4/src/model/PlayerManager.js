@@ -16,7 +16,7 @@ class PlayerManager {
 
   makeAttendence(playerName, horseName) {
     let searchPlayer = this.#players.find(
-      (p) => p.name === playerName && p.horseName === horseName
+      (p) => p.getName() === playerName && p.getHorseName() === horseName
     );
     if (searchPlayer) searchPlayer.checkIn();
     else {

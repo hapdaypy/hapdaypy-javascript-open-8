@@ -19,19 +19,19 @@ class App {
     audienceInput.print();
 
     //승 식 별 로 베 팅 금 액 을 계산
-    const betType = new BetTypeManager();
+    const betType = new BetTypeManager(); // 승식이 저장되어 있는 캡슐 하나
     const moneymanager = new MoneyManager();
     moneymanager.calculateTotalBets(audienceInput, betType);
     MoneyStatusView.printBettingTotals(betType.getTotal());
 
     //경 기 를 진 행 시 킴
     const raceManager = new RacingStart();
-    const finalRanking = await raceManager.run(playerInput, RacingOutput); //
+    const finalRanking = await raceManager.run(playerInput, RacingOutput); // 배열을 변수에 저장
     playerInput.print();
     RacingOutput.printRank(finalRanking);
 
     // 경 기 종 료 후 정 산
-
+    moneymanager.payoutCalculation(betType, audienceInput, finalRanking);
     // 최종 결과 진행
   }
 }

@@ -1,4 +1,4 @@
-import { MissionUtils } from "@woowacourse/mission-utils";
+import { MissionUtils } from '@woowacourse/mission-utils';
 
 class RacingStart {
   #racingRanking;
@@ -25,7 +25,7 @@ class RacingStart {
       const referenceValue = this.makeRandomValue();
 
       const validateStop = this.validateDistanceRecord(
-        playerArray[index].getRecord()
+        playerArray[index].getRecord(),
       );
 
       if (!validateStop && referenceValue >= RacingStart.TWENTY_FIVE) {
@@ -45,7 +45,7 @@ class RacingStart {
 
   determineRanks(record, player) {
     const isAlreadyRanked = this.#racingRanking.includes(player);
-    if ((record.length === 5) != isAlreadyRanked) {
+    if (record.length === 5 && !isAlreadyRanked) {
       this.#racingRanking.push(player);
     }
   }

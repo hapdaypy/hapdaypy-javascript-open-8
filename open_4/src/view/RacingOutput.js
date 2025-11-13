@@ -1,11 +1,11 @@
-import { Console } from "@woowacourse/mission-utils";
+import { Console } from '@woowacourse/mission-utils';
 
 class RacingOutput {
   static printRacingView(playerArray) {
     for (const player of playerArray) {
       Console.print(`${player.getName()} : ${player.getRecord()}`);
     }
-    Console.print("");
+    Console.print('');
   }
   static printRank(rankArray) {
     rankArray.forEach((player, index) => {

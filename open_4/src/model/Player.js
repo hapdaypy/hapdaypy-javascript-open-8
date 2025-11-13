@@ -1,6 +1,6 @@
 import { MissionUtils } from "@woowacourse/mission-utils";
 
-class player {
+class Player {
   // 플래이러 한 명을 관리하는 클래스
   #name;
   #horseName;
@@ -31,11 +31,16 @@ class player {
       name: this.#name,
       horse: this.#horseName,
       present: this.#isPresent,
+      racingRecord: this.#record,
     };
+  }
+
+  getAddRecord() {
+    this.#record += "-";
   }
 }
 
-export default player;
+export default Player;
 
 /*
 한 사람이 가져야할 정보

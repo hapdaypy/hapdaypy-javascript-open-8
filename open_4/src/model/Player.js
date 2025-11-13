@@ -35,7 +35,7 @@ class Player {
     };
   }
 
-  getAddRecord() {
+  addRecord() {
     this.#record += "-";
   }
 }

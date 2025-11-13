@@ -4,6 +4,7 @@ import RacingStart from "./model/Racing.js";
 import BetTypeManager from "./model/BetTypeManager.js";
 import MoneyManager from "./model/MoneyManagement.js";
 import MoneyStatusView from "./view/MoneyStatusView.js";
+import RacingOutput from "./view/RacingOutput.js";
 class App {
   async run() {
     // 선수들을 입장시키고 출석 결과 확인하기
@@ -24,12 +25,12 @@ class App {
     MoneyStatusView.printBettingTotals(betType.getTotal());
 
     //경 기 를 진 행 시 킴
-    const race = new RacingStart();
-    await race.run(playerInput); //
+    const raceManager = new RacingStart();
+    const finalRanking = await raceManager.run(playerInput, RacingOutput); //
     playerInput.print();
-    /*ui 기능을 분리하기 위한 나의 노력*/
+    RacingOutput.printRank(finalRanking);
 
-    // 경기 종료 후 정산
+    // 경 기 종 료 후 정 산
 
     // 최종 결과 진행
   }

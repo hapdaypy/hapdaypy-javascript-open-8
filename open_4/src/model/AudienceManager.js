@@ -15,10 +15,6 @@ class AudienceManager {
   getAllAudienceInfo() {
     return this.#audiences.map((p) => p.getInfo());
   }
-
-  getAudienceListSize() {
-    return this.#audiences.length;
-  }
 }
 
 export default AudienceManager;

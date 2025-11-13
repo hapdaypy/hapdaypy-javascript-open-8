@@ -19,9 +19,6 @@ class Player {
     MissionUtils.Console.print(`${this.#name} 출석 완료`);
   }
 
-  get name() {
-    return this.#name;
-  }
   get horseName() {
     return this.#horseName;
   }
@@ -37,6 +34,16 @@ class Player {
 
   addRecord() {
     this.#record += "-";
+  }
+
+  getRecord() {
+    return this.#record;
+  }
+  getName() {
+    return this.#name;
+  }
+  getHorseName() {
+    return this.#horseName;
   }
 }
 

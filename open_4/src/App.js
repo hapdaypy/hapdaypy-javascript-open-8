@@ -1,6 +1,7 @@
 import { Console } from "@woowacourse/mission-utils";
 import PlayerAttendenceInput from "./view/PlayerAttendenceInput.js";
 import AudienceInformationInput from "./view/AudienceInformationInput.js";
+import RacingStart from "./model/Racing.js";
 class App {
   async run() {
     // 선수들을 입장시키고 출석 결과 확인하기
@@ -16,7 +17,13 @@ class App {
 
     // 경기를 진행 시킴
     // const accidentVictim = accidentOccurred();
-    // racingStart(accidentVictim);
+    const race = new RacingStart();
+    await race.run(playerInput); //
+    playerInput.print();
+
+    /*
+    run 이라는 매세더를 호출하게 됨
+    */
 
     // 경기 종료 후 정산
     // adjustmentMoney(accidentVictim);

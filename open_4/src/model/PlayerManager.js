@@ -23,9 +23,12 @@ class PlayerManager {
       Console.print(`${playerName}은 출석하지 못했습니다.`);
     }
   }
-
   getAllPlayerInfo() {
     return this.#players.map((p) => p.getInfo());
+  }
+
+  getPlayers() {
+    return this.#players;
   }
 }
 

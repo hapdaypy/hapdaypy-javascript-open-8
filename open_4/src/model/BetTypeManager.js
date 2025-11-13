@@ -26,6 +26,7 @@ class BetTypeManager {
     };
     return typeMap[koreanType];
   }
+
   getTotal() {
     return { ...this.#totals };
   }

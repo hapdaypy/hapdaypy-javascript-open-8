@@ -29,7 +29,9 @@ class PlayerAndHourseInput {
   print() {
     Console.print(this.audienceList.getAllAudienceInfo());
   }
-
+  printGetMoney() {
+    Console.print(this.audienceList.getAllMoney());
+  }
   getAudienceListReturn() {
     return this.audienceList;
   }

@@ -9,7 +9,7 @@ class RacingOutput {
   }
   static printRank(rankArray) {
     rankArray.forEach((player, index) => {
-      Console.print(`${index + 1}등: ${player.getName()}`);
+      Console.print(`${index + 1}등: ${player}`);
     });
   }
 }

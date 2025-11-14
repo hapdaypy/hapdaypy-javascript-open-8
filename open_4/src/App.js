@@ -31,8 +31,13 @@ class App {
     RacingOutput.printRank(finalRanking);
 
     // 경 기 종 료 후 정 산
-    moneymanager.payoutCalculation(betType, audienceInput, finalRanking);
+    moneymanager.winningPoolCalculation(betType, audienceInput, finalRanking);
+    // 배당률 계산
+    moneymanager.payoutRatCalculation(betType, audienceInput); // 지금 배담금이 저장된 캡슐과 관객들이 저장된 캡슐을 준거임
+    // 사람 별로 정산
+    moneymanager.settleBets(betType, audienceInput);
     // 최종 결과 진행
+    audienceInput.printGetMoney();
   }
 }
 

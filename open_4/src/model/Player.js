@@ -19,9 +19,9 @@ class Player {
     MissionUtils.Console.print(`${this.#name} 출석 완료`);
   }
 
-  get horseName() {
-    return this.#horseName;
-  }
+  // get horseName() {
+  //   return this.#horseName;
+  // }
 
   getInfo() {
     return {

@@ -46,7 +46,7 @@ class RacingStart {
   determineRanks(record, player) {
     const isAlreadyRanked = this.#racingRanking.includes(player);
     if (record.length === 5 && !isAlreadyRanked) {
-      this.#racingRanking.push(player);
+      this.#racingRanking.push(player.getHorseName());
     }
   }
 }

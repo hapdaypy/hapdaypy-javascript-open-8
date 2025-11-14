@@ -15,6 +15,9 @@ class AudienceManager {
   getAllAudienceInfo() {
     return this.#audiences.map((p) => p.getInfo());
   }
+  getAllMoney() {
+    return this.#audiences.map((p) => p.getMoney());
+  }
 
   getAudience() {
     return this.#audiences;

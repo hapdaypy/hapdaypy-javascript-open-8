@@ -36,7 +36,18 @@ class PlayerManager {
     }
   }
   getAllPlayerInfo() {
-    return this.#players.map((p) => p.getInfo());
+    if (this.#players.length === 0) {
+      return '현재 출석한 선수가 아무도 없습니다.';
+    }
+
+    const playerInfoStrings = this.#players.map((player) => {
+      // 문자열로 만들어줌
+      const name = player.getName();
+      const horse = player.getHorseName();
+      return `선수: ${name}, 말: ${horse}`;
+    });
+
+    return playerInfoStrings.join('\n');
   }
 
   getPlayers() {

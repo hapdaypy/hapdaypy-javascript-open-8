@@ -19,7 +19,6 @@ class PlayerAndHorseInput {
         Validate.validatePairFormat(parts);
         const [player, horse] = parts;
         Validate.inputPlayer(player, horse);
-
         this.playerAttendenceList.addNewPlayer(player, horse);
       } catch (error) {
         Console.print(error.message);

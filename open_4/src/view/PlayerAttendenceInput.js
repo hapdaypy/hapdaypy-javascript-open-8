@@ -39,6 +39,7 @@ class PlayerAndHorseInput {
   }
 
   print() {
+    Console.print('\n<<선수 출석 명단>>');
     Console.print(this.playerAttendenceList.getAllPlayerInfo());
   }
 

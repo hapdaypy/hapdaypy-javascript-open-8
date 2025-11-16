@@ -9,7 +9,7 @@ class App {
   async run() {
     // 선수들을 입장시키고 출석 결과 확인하기
     const playerInput = new PlayerAttendenceInput(); // 새로운 배열을 만들겠다고 호출
-    await playerInput.collecPlayers();
+    await playerInput.collectPlayers();
     await playerInput.AttendenceCheckPlayers();
     playerInput.print();
 

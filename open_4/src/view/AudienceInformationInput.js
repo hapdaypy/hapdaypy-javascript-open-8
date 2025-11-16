@@ -2,6 +2,7 @@ import { Console } from '@woowacourse/mission-utils';
 import AudienceManager from '../model/AudienceManager.js';
 import MoneyManager from '../model/MoneyManagement.js';
 import Omr from '../model/Omr.js';
+import Validate from '../model/Validate.js';
 
 class PlayerAndHourseInput {
   constructor() {
@@ -38,3 +39,9 @@ class PlayerAndHourseInput {
 }
 
 export default PlayerAndHourseInput;
+/*
+여기가 진짜 개 맛도리 validate 확인 하는 부분... 생각할게 제일 많음 ... 얼마나 많이 생각해야하는걸까... 이부분에 대해서 생각해보자
+11월 16일 
+
+
+*/

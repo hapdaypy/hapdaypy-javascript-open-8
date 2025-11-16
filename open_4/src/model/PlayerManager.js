@@ -1,6 +1,6 @@
 import { Console } from '@woowacourse/mission-utils';
 import Player from './Player.js';
-
+import Validate from './Validate.js';
 class PlayerManager {
   // 플레이서 리스트를 관리하는 클래스
   #players;
@@ -10,6 +10,16 @@ class PlayerManager {
   }
 
   addNewPlayer(playerName, horseName) {
+    const isDuplicatePlayer = this.#players.find(
+      (p) => p.getName() == playerName,
+    );
+    const isDuplicateHourse = this.#players.find(
+      (p) => p.getHorseName === horseName,
+    );
+    Validate.validateDuplicatePlayerAndHours(
+      isDuplicatePlayer,
+      isDuplicateHourse,
+    );
     const newPlayer = new Player(playerName, horseName);
     this.#players.push(newPlayer);
   }
@@ -20,7 +30,9 @@ class PlayerManager {
     );
     if (searchPlayer) searchPlayer.checkIn();
     else {
-      Console.print(`${playerName}은 출석하지 못했습니다.`);
+      Console.print(
+        `[ERROR] ${playerName} 선수(${horseName} 말)를 찾을 수 없거나, 정보가 일치하지 않아 출석에 실패했습니다.`,
+      );
     }
   }
   getAllPlayerInfo() {

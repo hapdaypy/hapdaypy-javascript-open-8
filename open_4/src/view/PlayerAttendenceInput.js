@@ -15,10 +15,11 @@ class PlayerAndHorseInput {
         );
         if (playerAndHorse === '0') break;
 
-        const [player, horse] = playerAndHorse
-          .split(',')
-          .map((item) => item.trim());
+        const parts = playerAndHorse.split(',').map((item) => item.trim());
+        Validate.validatePairFormat(parts);
+        const [player, horse] = parts;
         Validate.inputPlayer(player, horse);
+
         this.playerAttendenceList.addNewPlayer(player, horse);
       } catch (error) {
         Console.print(error.message);
@@ -30,31 +31,15 @@ class PlayerAndHorseInput {
     while (true) {
       try {
         const attendencePlayerAndHorse = await Console.readLineAsync(
-          '경기장에 도착한 선수와 말을 입력해주세요.\n',
+          '경기장에 도착한 선수와 말을 입력해주세요. 종료를 원한다면 0을 입력해주세요.\n',
         );
+        if (attendencePlayerAndHorse === '0') break;
+
         const [player, horse] = attendencePlayerAndHorse
           .split(',')
           .map((item) => item.trim());
-        /*
-          이것도 validate 에 입력 형!!식!! 만 보고
-
-          makeattedence 에서 해당 내용을 확인해보자.
-          1. 해당 말은 선수 명단에 없습니다. 
-          2. 말과 선수가 일치하지 않습니다. 
-          3. 
-
-          
-          
-          
-          */
+        Validate.inputPlayer(player, horse);
         this.playerAttendenceList.makeAttendence(player, horse);
-        /*
-        이것도 출력 예쁘게 하자 
-        참석자 
-        불참자 
-        나눠서 출력 예쁘게 만들어보자 
-        
-        */
       } catch (error) {
         Console.print(error.message);
       }

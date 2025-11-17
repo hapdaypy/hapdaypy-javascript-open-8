@@ -3,7 +3,7 @@ import { Console } from '@woowacourse/mission-utils';
 class RacingOutput {
   static printRacingView(playerArray) {
     for (const player of playerArray) {
-      Console.print(`${player.getName()} : ${player.getRecord()}`);
+      Console.print(`${player.getHorseName()} : ${player.getRecord()}`);
     }
     Console.print('');
   }

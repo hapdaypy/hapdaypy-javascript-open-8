@@ -32,5 +32,73 @@ class Validate {
       throw new Error('[Error] 입장금에는 숫자만 기입해주세요.');
     }
   }
+
+  static nameInput(name) {
+    if (this.nameOnlyRegex.test(name)) {
+      throw new Error('[Error] 이름에 오직 한글 또는 영어만 있어야합니다.');
+    }
+  }
+  static omrInput(method, bettingAmount, selectHourse, playerInput) {
+    this.validateMethod(method, selectHourse);
+    this.validateBettingAmount(bettingAmount);
+    this.validateSelectHourse(selectHourse, playerInput);
+  }
+
+  static validateMethod(method, selectHourse) {
+    const validMethods = ['단승', '연승', '복승', '쌍승'];
+    if (!validMethods.includes(method)) {
+      throw new Error(
+        `[Error] 유효하지 않은 승식입니다: ${method}. (단승, 연승, 복승, 쌍승 중 하나여야 합니다)`,
+      );
+    }
+    const horseArray = selectHourse.split(',');
+
+    if ('단승' == method || '연승' === method) {
+      if (horseArray.length !== 1) {
+        throw new Error('단승 또는 연승에는 한마리의 말이 있어야 합니다.');
+      }
+    }
+    if ('복승' == method || '쌍승' === method) {
+      if (horseArray.length !== 2) {
+        throw new Error('복승 또는 쌍승에는 한마리의 말이 있어야 합니다.');
+      }
+    }
+  }
+  static validateBettingAmount(bettingAmount) {
+    if (this.numberOnlyRegex.test(bettingAmount)) {
+      throw new Error('[Error] 베팅 금액에는 숫자만 기입해주세요.');
+    }
+    if (Number(bettingAmount) < 1000) {
+      throw new Error('[Error] 베팅 금액은 1000원 이상이어야 합니다.');
+    }
+    if (Number(bettingAmount) % 1000 !== 0) {
+      throw new Error('[Error] 베팅 금액은 1000원 단위여야 합니다.');
+    }
+  }
+  static validateSelectHourse(selectHourse, playerInput) {
+    const playerManager = playerInput.getPlayerAttendenceListReturn();
+    const playerArray = playerManager.getPlayers();
+
+    const horseToPlayerMap = new Map(); // 명단에 있는 말이 생김
+    for (const player of playerArray) {
+      horseToPlayerMap.set(player.getHorseName(), player); // player 는 키, horse 는 value(=값) 이구나
+    }
+    const selectedHorses = selectHourse.split(',').map((h) => h.trim());
+
+    for (const horseName of selectedHorses) {
+      if (!horseToPlayerMap.has(horseName)) {
+        throw new Error(
+          `[Error] ${horseName} (은)는 출전 선수 명단에 없는 말입니다`,
+        );
+      }
+      const player = horseToPlayerMap.get(horseName);
+      if (!player.getIsPresent()) {
+        throw new Error(
+          `[Error] '${horseName}' 말의 선수(${player.getName()})는 아직 출석하지 않았습니다.`,
+        );
+      }
+    }
+  }
 }
+
 export default Validate;

@@ -27,7 +27,7 @@ class App {
     //경 기 를 진 행 시 킴
     const raceManager = new RacingStart();
     const finalRanking = await raceManager.run(playerInput, RacingOutput); // 배열을 변수에 저장
-    playerInput.print();
+    // playerInput.print();
     RacingOutput.printRank(finalRanking);
 
     // 경 기 종 료 후 정 산

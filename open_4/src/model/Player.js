@@ -45,6 +45,9 @@ class Player {
   getHorseName() {
     return this.#horseName;
   }
+  getIsPresent() {
+    return this.#isPresent;
+  }
 }
 
 export default Player;

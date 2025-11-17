@@ -1,13 +1,14 @@
 class Validate {
-  static numberOnlyRegex = /[^a-zA-Z가-힣]/;
+  static nameOnlyRegex = /[^a-zA-Z가-힣]/;
+  static numberOnlyRegex = /[^0-9]/;
 
   static inputPlayer(player, horse) {
-    if (this.numberOnlyRegex.test(player)) {
+    if (this.nameOnlyRegex.test(player)) {
       throw new Error(
         '[Error] 선수 이름에 오직 한글 또는 영어만 있어야합니다.',
       );
     }
-    if (this.numberOnlyRegex.test(horse)) {
+    if (this.nameOnlyRegex.test(horse)) {
       throw new Error('[Error] 말 이름에 오직 한글 또는 영어만 있어야합니다.');
     }
   }
@@ -24,6 +25,11 @@ class Validate {
       throw new Error(
         '[Error] 입력 형식이 올바르지 않습니다. "선수,말" 형식으로 쉼표 1개만 사용해주세요.',
       );
+    }
+  }
+  static MoneyInput(entranceFee) {
+    if (this.numberOnlyRegex.test(entranceFee)) {
+      throw new Error('[Error] 입장금에는 숫자만 기입해주세요.');
     }
   }
 }

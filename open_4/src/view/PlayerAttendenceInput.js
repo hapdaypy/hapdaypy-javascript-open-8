@@ -3,7 +3,7 @@ import PlayerManager from '../model/PlayerManager.js';
 import Validate from '../model/Validate.js';
 class PlayerAndHorseInput {
   constructor() {
-    this.playerAttendenceList = new PlayerManager(); // 호출해서 실질적으로 배열을 만들게 됨-> 배열 생성
+    this.playerList = new PlayerManager(); // 호출해서 실질적으로 배열을 만들게 됨-> 배열 생성
     // playerManager 를 호출함으로써 배열로 관리하는 클래스 호출 후 -> 하나의 배열을 생성하게 됨
   }
   async collectPlayers() {
@@ -19,7 +19,7 @@ class PlayerAndHorseInput {
         Validate.validatePairFormat(parts);
         const [player, horse] = parts;
         Validate.inputPlayer(player, horse);
-        this.playerAttendenceList.addNewPlayer(player, horse);
+        this.playerList.addNewPlayer(player, horse);
       } catch (error) {
         Console.print(error.message);
       }
@@ -33,12 +33,12 @@ class PlayerAndHorseInput {
           '경기장에 도착한 선수와 말을 입력해주세요. 종료를 원한다면 0을 입력해주세요.\n',
         );
         if (attendencePlayerAndHorse === '0') break;
-
         const [player, horse] = attendencePlayerAndHorse
           .split(',')
           .map((item) => item.trim());
-        Validate.inputPlayer(player, horse);
-        this.playerAttendenceList.makeAttendence(player, horse);
+        Validate.inputPlayer(player, horse); // 이력 형식이 맞는지 확인하는 코드
+        this.playerList.makeAttendence(player, horse);
+        if (this.playerList.makeAttendence(player, horse)) break;
       } catch (error) {
         Console.print(error.message);
       }
@@ -46,12 +46,12 @@ class PlayerAndHorseInput {
   }
 
   print() {
-    Console.print('\n<<선수 출석 명단>>');
-    Console.print(this.playerAttendenceList.getAllPlayerInfo());
+    Console.print('<<선수 출석 명단>>');
+    Console.print(this.playerList.getAllPlayerInfo());
   }
 
   getPlayerAttendenceListReturn() {
-    return this.playerAttendenceList;
+    return this.playerList;
   }
 }
 

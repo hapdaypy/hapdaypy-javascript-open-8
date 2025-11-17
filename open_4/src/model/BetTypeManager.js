@@ -27,21 +27,25 @@ class BetTypeManager {
 
   addBet(koreanType, amount) {
     // 베팅금
+    const convertAmount = Number(amount);
     const typeKey = this.translateBetType(koreanType);
     if (typeKey in this.#totals) {
-      this.#totals[typeKey] += amount;
+      this.#totals[typeKey] += convertAmount;
     }
   }
 
   addWinnigPool(typeKey, amount) {
     // 승리풀
     if (typeKey in this.#winningBetPool) {
-      this.#winningBetPool[typeKey] += amount;
+      const convertAmount = Number(amount);
+
+      this.#winningBetPool[typeKey] += convertAmount;
     }
   }
 
   addPayoutRat(typeKey, winningPool) {
-    this.#payoutRate[typeKey] += winningPool;
+    const convertAmount = Number(winningPool);
+    this.#payoutRate[typeKey] += convertAmount;
   }
 
   translateBetType(koreanType) {

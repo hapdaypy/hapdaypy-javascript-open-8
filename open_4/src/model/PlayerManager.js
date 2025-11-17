@@ -14,7 +14,7 @@ class PlayerManager {
       (p) => p.getName() == playerName,
     );
     const isDuplicateHourse = this.#players.find(
-      (p) => p.getHorseName === horseName,
+      (p) => p.getHorseName() === horseName,
     );
     Validate.validateDuplicatePlayerAndHours(
       isDuplicatePlayer,
@@ -25,15 +25,24 @@ class PlayerManager {
   }
 
   makeAttendence(playerName, horseName) {
-    let searchPlayer = this.#players.find(
-      (p) => p.getName() === playerName && p.getHorseName() === horseName,
+    const areAllPlayersPresent = this.#players.find(
+      (p) => p.getIsPresent() === false,
     );
-    if (searchPlayer)
-      searchPlayer.checkIn(); // 검사 통과해서 true 로 변하는 거 잖슴
-    else {
-      Console.print(
-        `[ERROR] ${playerName} 선수(${horseName} 말)를 찾을 수 없거나, 정보가 일치하지 않아 출석에 실패했습니다.`,
+
+    if (areAllPlayersPresent) {
+      let searchPlayer = this.#players.find(
+        (p) => p.getName() === playerName && p.getHorseName() === horseName,
       );
+      if (searchPlayer)
+        searchPlayer.checkIn(); // 검사 통과해서 true 로 변하는 거 잖슴
+      else {
+        Console.print(
+          `[ERROR] ${playerName} 선수(${horseName} 말)를 찾을 수 없거나, 정보가 일치하지 않아 출석에 실패했습니다.`,
+        );
+      }
+    } else {
+      Console.print(`모든 선수가 출석이 완료되었습니다.`);
+      return true;
     }
   }
   getAllPlayerInfo() {

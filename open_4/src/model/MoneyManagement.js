@@ -10,7 +10,6 @@ class MoneyManager {
       return true;
     } else if (entranceFeeNumber < 2000) {
       Console.print(`입장료는 2000원입니다.`);
-
       return false;
     }
   }
@@ -78,8 +77,6 @@ class MoneyManager {
       연승: 'place',
       복승: 'quinella',
       쌍승: 'exacta',
-      복연승: 'swinger',
-      삼복승: 'trio',
     };
     return typeMap[koreanType];
   }

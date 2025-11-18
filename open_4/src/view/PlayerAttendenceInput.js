@@ -27,6 +27,7 @@ class PlayerAndHorseInput {
   }
 
   async AttendenceCheckPlayers() {
+    // 출석 여부를 관리함
     while (true) {
       try {
         const attendencePlayerAndHorse = await Console.readLineAsync(
@@ -38,6 +39,7 @@ class PlayerAndHorseInput {
           .map((item) => item.trim());
         Validate.inputPlayer(player, horse); // 이력 형식이 맞는지 확인하는 코드
         const checkOut = this.playerList.makeAttendence(player, horse);
+
         if (checkOut) break;
       } catch (error) {
         Console.print(error.message);

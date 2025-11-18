@@ -20,7 +20,7 @@ class PlayerAndHourseInput {
         Validate.MoneyInput(entranceFee);
         const entryResult = MoneyManager.checkEntranceFee(entranceFee);
         if (entryResult === true) {
-          const { audienceName, audienceOmr: audienceOmrClass } =
+          const { audienceName, audienceOmrClass } =
             await this.#collectAudienceDetails(playerInput);
           this.audienceList.addNewAudience(audienceName, audienceOmrClass);
         }
@@ -51,7 +51,7 @@ class PlayerAndHourseInput {
     }
   }
 
-  print() {
+  printAudience() {
     Console.print(this.audienceList.getAllAudienceInfo());
   }
   printGetMoney() {

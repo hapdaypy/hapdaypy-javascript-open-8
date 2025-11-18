@@ -37,12 +37,23 @@ class PlayerAndHorseInput {
           .split(',')
           .map((item) => item.trim());
         Validate.inputPlayer(player, horse); // 이력 형식이 맞는지 확인하는 코드
-        this.playerList.makeAttendence(player, horse);
-        if (this.playerList.makeAttendence(player, horse)) break;
+        const checkOut = this.playerList.makeAttendence(player, horse);
+        if (checkOut) break;
       } catch (error) {
         Console.print(error.message);
       }
     }
+  }
+
+  isEveryoneAbsent() {
+    for (const player of this.playerList.getPlayers()) {
+      if (player.getIsPresent() === true) {
+        // 출석한 사람이 존재
+        return false;
+      }
+    }
+    Console.print('참가 선수가 아무도 없어 경기를 종료합니다.');
+    return true;
   }
 
   print() {

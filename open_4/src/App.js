@@ -11,12 +11,15 @@ class App {
     const playerInput = new PlayerAttendenceInput(); // 새로운 배열을 만들겠다고 호출
     await playerInput.collectPlayers();
     await playerInput.AttendenceCheckPlayers();
+    if (playerInput.isEveryoneAbsent()) {
+      return;
+    }
     playerInput.print();
 
     // 관 객 들 을 입 장 시 킴.
     const audienceInput = new AudienceInformationInput(); // 사용 자들을 만들겠다고 호출
-    await audienceInput.collecAudience();
-    audienceInput.print();
+    await audienceInput.collecAudience(playerInput);
+    audienceInput.printAudience();
 
     //승 식 별 로 베 팅 금 액 을 계산
     const betType = new BetTypeManager(); // 승식이 저장되어 있는 캡슐 하나

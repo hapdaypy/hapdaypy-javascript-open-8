@@ -17,11 +17,8 @@ class Player {
   checkIn() {
     this.#isPresent = true;
     MissionUtils.Console.print(`${this.#name} 출석 완료`);
+    MissionUtils.Console.print('');
   }
-
-  // get horseName() {
-  //   return this.#horseName;
-  // }
 
   getInfo() {
     return {

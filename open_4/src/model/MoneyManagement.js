@@ -7,9 +7,13 @@ class MoneyManager {
     if (entranceFeeNumber >= 2000) {
       const change = entranceFee - 2000;
       Console.print(`잔돈은 ${change}원입니다.`);
+      Console.print('');
+
       return true;
     } else if (entranceFeeNumber < 2000) {
       Console.print(`입장료는 2000원입니다.`);
+      Console.print('');
+
       return false;
     }
   }

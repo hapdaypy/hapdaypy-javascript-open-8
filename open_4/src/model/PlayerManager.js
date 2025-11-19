@@ -48,6 +48,8 @@ class PlayerManager {
 
     if (!CurrentCheckAbsent) {
       Console.print(`모든 선수가 출석이 완료되었습니다.`);
+      Console.print('');
+
       return true;
     } else return false;
   }

@@ -73,6 +73,7 @@ class Validate {
     }
     if (Number(bettingAmount) % 1000 !== 0) {
       throw new Error('[Error] 베팅 금액은 1000원 단위여야 합니다.');
+      Console.print('');
     }
   }
   static validateSelectHourse(selectHourse, playerInput) {

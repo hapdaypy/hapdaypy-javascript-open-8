@@ -59,8 +59,17 @@ class BetTypeManager {
   }
 
   getTotal() {
-    return { ...this.#totals };
+    const { win, place, quinella, exacta } = this.#totals;
+
+    return `
+[총 배팅 금액 현황]
+- 단승: ${win}원
+- 연승: ${place}원
+- 복승: ${quinella}원
+- 쌍승: ${exacta}원
+  `.trim();
   }
+
   getTotalElement(key) {
     return this.#totals[key];
   }

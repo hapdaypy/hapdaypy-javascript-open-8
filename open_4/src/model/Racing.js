@@ -10,7 +10,7 @@ class RacingStart {
   async run(playerInput, outputView) {
     const playerManager = playerInput.getPlayerAttendenceListReturn();
     const playerArray = playerManager.getPlayers();
-    const playerNumber = playerArray.length; //  배열의 길이
+    const playerNumber = playerArray.length;
 
     while (this.#racingRanking.length !== playerArray.length) {
       this.RaceController(playerArray, playerNumber);
@@ -29,7 +29,7 @@ class RacingStart {
       );
 
       if (!validateStop && referenceValue >= RacingStart.TWENTY_FIVE) {
-        playerArray[index].addRecord(); // player라는 클래스에 접근함
+        playerArray[index].addRecord();
         this.determineRanks(playerArray[index].getRecord(), playerArray[index]);
       }
     }
@@ -52,16 +52,3 @@ class RacingStart {
 }
 
 export default RacingStart;
-
-/*
-
-먼저 5칸을 들어오는 말이 이기는 거임
-
-말을 전진시킬 때마다 출력을 해야함 
-
-도착한 말은 더이상 recording 되지 않음
------ 가 5개가 나와야함 
-
-
-
-*/

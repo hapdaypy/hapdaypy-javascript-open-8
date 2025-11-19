@@ -1,9 +1,5 @@
-import { MissionUtils } from '@woowacourse/mission-utils';
-
 class Omr {
-  // OMR 을 관리하는 클래스
-
-  #methodOfWinning; // 승식
+  #methodOfWinning;
   #betAmount;
   #selectHorse;
   #accidentStatus = false;
@@ -32,8 +28,6 @@ class Omr {
   getselectHorse() {
     return this.#selectHorse;
   }
-
-  // 형식이 다 맞게 되었는지 검사해야함
 }
 
 export default Omr;

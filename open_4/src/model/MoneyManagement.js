@@ -38,7 +38,7 @@ class MoneyManager {
     for (let index = 0; index < audienceArray.length; index++) {
       const koreanType = audienceArray[index].getBettingType();
       const englishType = this.translateBetType(koreanType);
-      const audienceHorse = audienceArray[index].getHorse().split(','); // 배열로 만듦
+      const audienceHorse = audienceArray[index].getHorse().split(',');
 
       const isCorrect = WinningCalculator.isWinning(
         englishType,
@@ -53,9 +53,9 @@ class MoneyManager {
           englishType,
           audienceArray[index].getBettingMoney(),
         );
-        // audience 맞췄으니까 맞춤여부에 체크표시
+        // audience 베팅 성공 표사
       } else if (isCorrect === false) {
-        // 틀렸으니까 받을 돈 0 원리라고 해둬야지
+        // 베팅 실패 표시
       }
     }
   }
@@ -99,8 +99,5 @@ class MoneyManager {
     }
   }
 }
-/*
-예외케이스
-1. 
-*/
+
 export default MoneyManager;

@@ -80,9 +80,9 @@ class Validate {
     const playerManager = playerInput.getPlayerAttendenceListReturn();
     const playerArray = playerManager.getPlayers();
 
-    const horseToPlayerMap = new Map(); // 명단에 있는 말이 생김
+    const horseToPlayerMap = new Map();
     for (const player of playerArray) {
-      horseToPlayerMap.set(player.getHorseName(), player); // player 는 키, horse 는 value(=값) 이구나
+      horseToPlayerMap.set(player.getHorseName(), player);
     }
     const selectedHorses = selectHourse.split(',').map((h) => h.trim());
 

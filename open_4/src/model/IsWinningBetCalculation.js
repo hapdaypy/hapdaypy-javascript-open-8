@@ -6,7 +6,7 @@ const isWin = (betHorses, finalRanking) => {
 
 const isPlace = (betHorses, finalRanking) => {
   const horseToPlace = betHorses[0];
-  const topThree = finalRanking.slice(0, 3);
+  const topThree = finalRanking.slice(0, 3); // 내가 필요한 범위까지만 자름
   return topThree.includes(horseToPlace);
 };
 

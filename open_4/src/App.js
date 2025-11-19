@@ -1,10 +1,10 @@
-import PlayerAttendenceInput from './view/PlayerAttendenceInput.js';
-import AudienceInformationInput from './view/AudienceInformationInput.js';
+import PlayerAttendenceInput from './view/PlayerAttendenceView.js';
+import AudienceInformationInput from './view/AudienceInformationView.js';
 import RacingStart from './model/Racing.js';
 import BetTypeManager from './model/BetTypeManager.js';
 import MoneyManager from './model/MoneyManagement.js';
 import MoneyStatusView from './view/MoneyStatusView.js';
-import RacingOutput from './view/RacingOutput.js';
+import RacingView from './view/RacingView.js';
 class App {
   async run() {
     // 선수들을 입장시키고 출석 결과 확인하기
@@ -25,13 +25,12 @@ class App {
     const betType = new BetTypeManager(); // 승식이 저장되어 있는 캡슐 하나
     const moneymanager = new MoneyManager();
     moneymanager.calculateTotalBets(audienceInput, betType);
-    MoneyStatusView.printBettingTotals(betType.getTotal());
+    MoneyStatusView.printBettingTotals(betType);
 
     //경 기 를 진 행 시 킴
     const raceManager = new RacingStart();
-    const finalRanking = await raceManager.run(playerInput, RacingOutput); // 배열을 변수에 저장
-    // playerInput.print();
-    RacingOutput.printRank(finalRanking);
+    const finalRanking = await raceManager.run(playerInput, RacingView); // 배열을 변수에 저장
+    RacingView.printRank(finalRanking);
 
     // 경 기 종 료 후 정 산
     moneymanager.winningPoolCalculation(betType, audienceInput, finalRanking);

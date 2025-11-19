@@ -36,11 +36,7 @@ class Audience {
     return (this.#prizeMoney = money);
   }
   getMoney() {
-    return {
-      name: this.#name,
-      money: this.#prizeMoney,
-      winning: this.#winning,
-    };
+    return this.#prizeMoney;
   }
 }
 export default Audience;

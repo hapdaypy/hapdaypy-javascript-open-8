@@ -21,7 +21,14 @@ class AudienceManager {
     return audienceInputString.join('\n');
   }
   getAllMoney() {
-    return this.#audiences.map((p) => p.getMoney());
+    const audienceInputString = this.#audiences.map((audience) => {
+      // 문자열로 만들어줌
+      const name = audience.getName();
+      const { methodOfWinning, betAmount, selectHorse } = audience.getOmr();
+      const result = audience.getMoney();
+      return `이름: ${name}, 승식: ${methodOfWinning}, 베팅금: ${betAmount}, 선택한 말: ${selectHorse}, 수익: ${result}`;
+    });
+    return audienceInputString.join('\n');
   }
 
   getAudience() {

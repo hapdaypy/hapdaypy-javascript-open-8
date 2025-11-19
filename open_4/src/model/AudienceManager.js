@@ -6,14 +6,19 @@ class AudienceManager {
   constructor() {
     this.#audiences = []; // 배열 전체를 가리킴 -> 이 부분이 핵심, 배열처럼 관리할 수 있음
   }
-
   addNewAudience(audienceName, Omr) {
     const newAudience = new audience(audienceName, Omr);
     this.#audiences.push(newAudience); // 배열에
   }
-
   getAllAudienceInfo() {
-    return this.#audiences.map((p) => p.getInfo());
+    const audienceInputString = this.#audiences.map((audience) => {
+      // 문자열로 만들어줌
+      const name = audience.getName();
+      const { methodOfWinning, betAmount, selectHorse } = audience.getOmr();
+      return `이름: ${name}, 승식: ${methodOfWinning}, 베팅금 :${betAmount}, 선택한 말 :${selectHorse}`;
+    });
+
+    return audienceInputString.join('\n');
   }
   getAllMoney() {
     return this.#audiences.map((p) => p.getMoney());

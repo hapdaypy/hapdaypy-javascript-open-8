@@ -1,7 +1,6 @@
 class Audience {
   #name;
   #omr;
-  #refundTarget; // 환불대상자
   #winning = false;
   #prizeMoney = 0;
 
@@ -10,11 +9,11 @@ class Audience {
     this.#omr = omr;
   }
 
-  getInfo() {
-    return {
-      name: this.#name,
-      omr: this.#omr.getInfoOmr(),
-    };
+  getOmr() {
+    return this.#omr.getInfoOmr();
+  }
+  getName() {
+    return this.#name;
   }
 
   getBettingType() {

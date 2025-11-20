@@ -37,6 +37,7 @@ class PlayerAndHourseInput {
         const audienceOmrString = await Console.readLineAsync(
           'OMR을 작성해주세요. 승식/베팅금/선택한 말 순으로 기입해주세요\n',
         );
+        Validate.omrFormate(audienceOmrString);
         const omrSplit = audienceOmrString.split('/');
         const [method, bettingAmount, selectHourse] = omrSplit;
         Validate.omrInput(method, bettingAmount, selectHourse, playerInput); // omr 을 검증하는 기능.
@@ -50,10 +51,12 @@ class PlayerAndHourseInput {
   }
 
   printAudience() {
+    Console.print('<<관객들의 정보>>');
     Console.print(this.audienceList.getAllAudienceInfo());
     Console.print('');
   }
   printGetMoney() {
+    Console.print('<<관객들의 베팅 결과>>');
     Console.print(this.audienceList.getAllMoney());
   }
   getAudienceListReturn() {

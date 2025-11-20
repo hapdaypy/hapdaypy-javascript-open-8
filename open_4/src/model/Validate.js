@@ -39,12 +39,22 @@ class Validate {
     }
   }
   static omrInput(method, bettingAmount, selectHourse, playerInput) {
-    this.validateMethod(method, selectHourse);
+    this.validateMethod(method, selectHourse, playerInput);
     this.validateBettingAmount(bettingAmount);
     this.validateSelectHourse(selectHourse, playerInput);
   }
+  static omrFormate(audienceOmrString) {
+    const slashCount = [...audienceOmrString].filter(
+      (char) => char === '/',
+    ).length;
+    if (slashCount !== 2) throw new Error(`[Error] /로 명확히 구분해주세요.)`);
+  }
 
-  static validateMethod(method, selectHourse) {
+  static validateMethod(method, selectHourse, playerInput) {
+    const playerManager = playerInput.getPlayerAttendenceListReturn();
+    const playerArray = playerManager.getPlayers();
+    const playerNumber = playerArray.length;
+
     const validMethods = ['단승', '연승', '복승', '쌍승'];
     if (!validMethods.includes(method)) {
       throw new Error(

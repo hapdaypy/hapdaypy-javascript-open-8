@@ -45,6 +45,17 @@ class PlayerAndHorseInput {
     }
   }
 
+  checkPlayerNumber() {
+    if (this.playerList.getPlayers.length === 1) {
+      Console.print(
+        '선수가 1명인 관계로 경기를 진행할 수 없어서 프로그램을 종료합니다.',
+      );
+      Console.print('');
+      return true;
+    }
+    return false;
+  }
+
   isEveryoneAbsent() {
     for (const player of this.playerList.getPlayers()) {
       if (player.getIsPresent() === true) {
@@ -52,8 +63,9 @@ class PlayerAndHorseInput {
         return false;
       }
     }
-    Console.print('참가 선수가 아무도 없어 경기를 종료합니다.');
+    Console.print('모든 선수가 참가하지 않아서 종료합니다.');
     Console.print('');
+
     return true;
   }
 

@@ -11,7 +11,8 @@ class RacingStart {
     const playerManager = playerInput.getPlayerAttendenceListReturn();
     const playerArray = playerManager.getPlayers();
     const playerNumber = playerArray.length;
-
+    MissionUtils.Console.print('<<경기 시작!>>');
+    MissionUtils.Console.print('');
     while (this.#racingRanking.length !== playerArray.length) {
       this.RaceController(playerArray, playerNumber);
       outputView.printRacingView(playerArray);

@@ -29,8 +29,11 @@ class App {
   async #recruitPlayers() {
     const playerInput = new PlayerAttendenceInput();
     await playerInput.collectPlayers();
-    await playerInput.AttendenceCheckPlayers();
+    if (playerInput.checkPlayerNumber()) {
+      return null;
+    }
 
+    await playerInput.AttendenceCheckPlayers();
     if (playerInput.isEveryoneAbsent()) {
       return null; // 모두 결석했다는 신호(null) 반환
     }

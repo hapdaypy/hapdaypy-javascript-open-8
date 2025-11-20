@@ -8,7 +8,6 @@ class MoneyManager {
       const change = entranceFee - 2000;
       Console.print(`잔돈은 ${change}원입니다.`);
       Console.print('');
-
       return true;
     } else if (entranceFeeNumber < 2000) {
       Console.print(`입장료는 2000원입니다.`);
@@ -34,12 +33,10 @@ class MoneyManager {
   winningPoolCalculation(betType, audienceInput, finalRanking) {
     const audienceManager = audienceInput.getAudienceListReturn();
     const audienceArray = audienceManager.getAudience();
-
     for (let index = 0; index < audienceArray.length; index++) {
       const koreanType = audienceArray[index].getBettingType();
       const englishType = this.translateBetType(koreanType);
       const audienceHorse = audienceArray[index].getHorse().split(',');
-
       const isCorrect = WinningCalculator.isWinning(
         englishType,
         audienceHorse,
@@ -48,7 +45,6 @@ class MoneyManager {
       if (isCorrect === true) {
         // 정답일 경우
         audienceArray[index].setWinnig(true);
-
         betType.addWinnigPool(
           englishType,
           audienceArray[index].getBettingMoney(),
@@ -66,7 +62,6 @@ class MoneyManager {
     for (const key of betTypeKeys) {
       const total = betType.getTotalElement(key);
       const winningPool = betType.getWinning(key);
-
       let payoutRate = 0;
       if (winningPool > 0) {
         payoutRate = total / winningPool;

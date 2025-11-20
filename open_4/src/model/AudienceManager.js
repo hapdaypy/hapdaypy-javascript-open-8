@@ -2,7 +2,6 @@ import audience from './Audience.js';
 
 class AudienceManager {
   #audiences;
-
   constructor() {
     this.#audiences = [];
   }
@@ -17,7 +16,6 @@ class AudienceManager {
       const { methodOfWinning, betAmount, selectHorse } = audience.getOmr();
       return `이름: ${name}, 승식: ${methodOfWinning}, 베팅금 :${betAmount}, 선택한 말 :${selectHorse}`;
     });
-
     return audienceInputString.join('\n');
   }
   getAllMoney() {
@@ -29,7 +27,6 @@ class AudienceManager {
     });
     return audienceInputString.join('\n');
   }
-
   getAudience() {
     return this.#audiences;
   }

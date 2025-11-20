@@ -2,7 +2,6 @@ class Omr {
   #methodOfWinning;
   #betAmount;
   #selectHorse;
-  #accidentStatus = false;
 
   constructor(methodOfWinning, betAmount, selectHourse) {
     this.#methodOfWinning = methodOfWinning;

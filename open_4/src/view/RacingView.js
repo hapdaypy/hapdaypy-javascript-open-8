@@ -8,6 +8,7 @@ class RacingOutput {
     Console.print('');
   }
   static printRank(rankArray) {
+    Console.print('<<경기 결과>>');
     rankArray.forEach((player, index) => {
       Console.print(`${index + 1}등: ${player}`);
     });

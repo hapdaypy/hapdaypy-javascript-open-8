@@ -1,5 +1,5 @@
 {
-  "name": "hapdaypy-javascript-open-8",
+  "name": "open_4",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -15,7 +15,8 @@
     "jest": "^30.1.2"
   },
   "dependencies": {
-    "@woowacourse/mission-utils": "^2.2.0"
+    "@woowacourse/mission-utils": "^2.2.0",
+    "woowa-mission-lint": "^0.0.6"
   },
   "jest": {
     "transform": {
@@ -30,5 +31,6 @@
   "engines": {
     "npm": ">=10.8.2",
     "node": ">=22.19.0"
-  }
+  },
+  "prettier": "woowa-mission-lint"
 }

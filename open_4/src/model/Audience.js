@@ -1,8 +1,9 @@
 class Audience {
+  static ZERO = 0;
   #name;
   #omr;
   #winning = false;
-  #prizeMoney = 0;
+  #prizeMoney = Audience.ZERO;
 
   constructor(name, omr) {
     this.#name = name;

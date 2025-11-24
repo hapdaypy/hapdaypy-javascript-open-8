@@ -1,7 +1,8 @@
 class Validate {
   static nameOnlyRegex = /[^a-zA-Z가-힣]/;
   static numberOnlyRegex = /[^0-9]/;
-
+  static TOUSAND = 1000;
+  static ZERO = 0;
   static inputPlayer(player, horse) {
     if (this.nameOnlyRegex.test(player)) {
       throw new Error(
@@ -78,10 +79,10 @@ class Validate {
     if (this.numberOnlyRegex.test(bettingAmount)) {
       throw new Error('[Error] 베팅 금액에는 숫자만 기입해주세요.');
     }
-    if (Number(bettingAmount) < 1000) {
+    if (Number(bettingAmount) < Validate.TOUSAND) {
       throw new Error('[Error] 베팅 금액은 1000원 이상이어야 합니다.');
     }
-    if (Number(bettingAmount) % 1000 !== 0) {
+    if (Number(bettingAmount) % Validate.TOUSAND !== Validate.ZERO) {
       throw new Error('[Error] 베팅 금액은 1000원 단위여야 합니다.');
       Console.print('');
     }

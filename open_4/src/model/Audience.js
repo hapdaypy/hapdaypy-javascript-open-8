@@ -23,18 +23,23 @@ class Audience {
   getBettingMoney() {
     return this.#omr.getBetAmount();
   }
+
   getHorse() {
     return this.#omr.getselectHorse();
   }
+
   setWinnig(isWin) {
     return (this.#winning = isWin);
   }
+
   getWinning() {
     return this.#winning;
   }
+
   calculatePrizeMoney(money) {
     return (this.#prizeMoney = money);
   }
+
   getMoney() {
     return this.#prizeMoney;
   }

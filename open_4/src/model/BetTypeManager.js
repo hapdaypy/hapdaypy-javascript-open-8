@@ -75,12 +75,6 @@ class BetTypeManager {
   getPayoutRate(key) {
     return this.#payoutRate[key];
   }
-
-  addPayoutRat(typeKey, winningPool) {
-    const convertAmount = Number(winningPool);
-
-    this.#payoutRate[typeKey] += convertAmount;
-  }
 }
 
 export default BetTypeManager;

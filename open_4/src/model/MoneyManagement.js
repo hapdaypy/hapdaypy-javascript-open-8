@@ -51,7 +51,7 @@ class MoneyManager {
           englishType,
           audienceArray[index].getBettingMoney(),
         );
-        // audience 베팅 성공 표사
+        // audience 베팅 성공 표시
       } else if (isCorrect === false) {
         // 베팅 실패 표시
       }
@@ -91,7 +91,7 @@ class MoneyManager {
         const englishType = this.translateBetType(koreanType);
         const payoutRate = betType.getPayoutRate(englishType);
         const money = payoutRate * audience.getBettingMoney();
-        audience.calculatePrizeMoney(money);
+        audience.calculatePrizeMoney(Math.floor(money));
       }
     }
   }

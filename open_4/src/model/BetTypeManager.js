@@ -38,14 +38,8 @@ class BetTypeManager {
     // 승리풀
     if (typeKey in this.#winningBetPool) {
       const convertAmount = Number(amount);
-
       this.#winningBetPool[typeKey] += convertAmount;
     }
-  }
-
-  addPayoutRat(typeKey, winningPool) {
-    const convertAmount = Number(winningPool);
-    this.#payoutRate[typeKey] += convertAmount;
   }
 
   translateBetType(koreanType) {
@@ -60,7 +54,6 @@ class BetTypeManager {
 
   getTotal() {
     const { win, place, quinella, exacta } = this.#totals;
-
     return `
 [총 배팅 금액 현황]
 - 단승: ${win}원
